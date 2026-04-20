@@ -114,7 +114,7 @@ function scrollDown(){ msgs.scrollTop = msgs.scrollHeight; }
 function addMsg(text, role){
   const d = document.createElement('div');
   d.className = 'msg ' + role;
-  d.textContent = text;
+  d.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
   msgs.appendChild(d);
   scrollDown();
 }
